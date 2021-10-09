@@ -30,6 +30,8 @@
     <!-- Template Main CSS File -->
     <link href="<?= base_url() ?>public/assets/css/style.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- =======================================================
   * Template Name: CIA MOLINUCO TRANS - v3.2.0
   * Template URL: https://bootstrapmade.com/CIA MOLINUCO TRANS-bootstrap-business-template/
