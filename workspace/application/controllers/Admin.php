@@ -8,10 +8,84 @@ class Admin extends CI_Controller
         $this->cargarPlantilla('admin/index.php',array("mensaje"=>""));
     }
 
-	public function usuarioVista()
+
+	//////////////////////// USUARIO //////////////////////////
+	public function usuarioVista($id = NULL)
 	{
-		$this->cargarPlantilla('admin/usuario.php',array("mensaje"=>""));		
+		$this->load->model('UsuarioModel');
+		//Consultar todos los transportes de la vista
+		$result = $this->UsuarioModel->todos();
+
+		//Consultar el dato cargado en la vista en caso de que quiera editar
+		$dato=null;
+		$modo="[NUEVO]";
+		if(!is_null($id))
+		{
+			//print("buscando $id");
+			$dato=$this->UsuarioModel->buscarPorId($id);
+			$modo="[EDITAR]";
+			//var_dump($dato);
+		}
+
+		$this->cargarPlantilla('admin/usuario.php',array("consulta"=>$result,"dato"=>$dato,"mensaje"=>"","modo"=>$modo));		
 	}
+
+	public function gestionarUsuarioGrabar()
+	{
+		$id=$this->input->post("id");
+		if(empty($id))
+		{
+			print("grabar");
+			//Si la variable id no existe entonces mando a GRABAR
+			$this->usuarioGrabar();
+		}
+		else
+		{
+			//Si id existe entonces mando a EDITAR
+			print("editar");
+			$this->usuarioEditar();
+		}
+		
+		redirect('admin/usuarioVista');
+	}
+
+	public function usuarioGrabar()
+	{
+		$this->load->model('UsuarioModel');
+		$this->UsuarioModel->crear(
+			$this->input->post("usuario"),
+			$this->input->post("clave"),
+			$this->input->post("nombres"),
+			$this->input->post("correo")
+		);
+
+	}
+
+	public function usuarioEditar()
+	{
+		$this->load->model('UsuarioModel');
+		$this->UsuarioModel->editar(
+			$this->input->post("id"),
+			$this->input->post("usuario"),
+			$this->input->post("clave"),
+			$this->input->post("nombres"),
+			$this->input->post("correo")
+		);
+
+	}
+
+	public function usuarioEliminar($id = NULL)
+	{
+		if($id != NULL)
+        {
+            $this->load->model("UsuarioModel");
+            $this->UsuarioModel->eliminar($id);
+            redirect('admin/usuarioVista');
+
+        }
+	}
+
+	//////////////////////// TRANSPORTE //////////////////////////
 
 	public function transporteVista($id = NULL)
 	{
@@ -91,6 +165,8 @@ class Admin extends CI_Controller
 
         }
 	}
+
+	//////////////////////// FIN TRANSPORTE //////////////////////////
 
 	public function hospedajeVista()
 	{
