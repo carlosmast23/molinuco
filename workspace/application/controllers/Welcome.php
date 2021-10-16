@@ -34,9 +34,15 @@ class Welcome extends CI_Controller {
 		$usuario=$this->input->post('usuario');
 		$clave=$this->input->post('clave');
 
-		if($usuario=='admin' && $clave=='admin')
+		$this->load->model('ValidacionModel');
+		//Consultar todos los transportes de la vista
+		$validacionLogin=$this->ValidacionModel->validar($usuario,$clave);
+
+		var_dump($validacionLogin);
+
+		//if($usuario=='admin' && $clave=='admin')
+		if($validacionLogin)
 		{
-			//$this->cargarPlantilla('admin/index.php',array("mensaje"=>""));	
 			redirect('admin/index');
 		}
 		else
