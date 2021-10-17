@@ -64,6 +64,7 @@ class PaqueteCtr extends CI_Controller
 			$this->input->post("idTransporte"),
 			$this->input->post("idHospedaje"),
 			$this->input->post("nombre"),
+			$this->input->post("descripcion"),
             $this->input->post("precio"),
             $this->input->post("estado")
 		);
@@ -78,6 +79,7 @@ class PaqueteCtr extends CI_Controller
 			$this->input->post("idTransporte"),
 			$this->input->post("idHospedaje"),
 			$this->input->post("nombre"),
+			$this->input->post("descripcion"),
             $this->input->post("precio"),
             $this->input->post("estado")
 		);

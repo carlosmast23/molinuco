@@ -40,3 +40,13 @@ CREATE TABLE `paquete_turistico`
 	FOREIGN KEY (id_hospedaje) REFERENCES hospedaje(id)
 
 );
+
+CREATE TABLE `reserva`
+(
+	`id` bigint(20) NOT NULL AUTO_INCREMENT,
+	`id_paquete_turistico` bigint(20) NOT NULL,
+	`nombre` varchar(512) DEFAULT NULL,
+	`telefono` varchar(32) DEFAULT NULL,
+	`email` varchar(256) DEFAULT NULL,
+	`estado` varchar(1) DEFAULT NULL,
+);

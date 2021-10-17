@@ -46,13 +46,23 @@
 
         <div class="row" data-aos="fade-up" style="margin-top: 15px;" data-aos-delay="100">
             <div class="col-lg-4 offset-lg-4">
+                <input type="text" name="descripcion" value="<?php echo $dato['descripcion'] ?>" class="form-control" placeholder="Descripcion" required>
+            </div>
+        </div>
+
+        <div class="row" data-aos="fade-up" style="margin-top: 15px;" data-aos-delay="100">
+            <div class="col-lg-4 offset-lg-4">
                 <input type="text" name="precio" value="<?php echo $dato['precio'] ?>" class="form-control" placeholder="Precio" required>
             </div>
         </div>
 
         <div class="row" data-aos="fade-up" style="margin-top: 15px;" data-aos-delay="100">
             <div class="col-lg-2 offset-lg-4">
-                <input type="text" name="estado" value="<?php echo $dato['estado'] ?>" class="form-control" placeholder="Estado" required>
+                <div>Estado:</div>
+                <select name="estado">
+                    <option value="A" <?php echo ($dato['estado']=='A'?'selected':'') ?> >Activo</option>
+                    <option value="E" <?php echo ($dato['estado']=='I'?'selected':'') ?> >Inactivo</option>
+                </select>                
             </div>
         </div>
 

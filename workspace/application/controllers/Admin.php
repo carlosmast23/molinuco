@@ -3,9 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller 
 {
+	//Vista que se encarga de cargar los datos de la vista principal
     public function index()
     {
-        $this->cargarPlantilla('admin/index.php',array("mensaje"=>""));
+		$this->load->model('PaqueteModel');
+		$resultPaquetes = $this->PaqueteModel->todosActivos();
+
+        $this->cargarPlantilla('admin/index.php',array("mensaje"=>"","paquetes"=>$resultPaquetes));
     }
 
 

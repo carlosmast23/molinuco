@@ -20,7 +20,24 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->cargarPlantilla('index.php',array("mensaje"=>""));
+		$this->load->model('PaqueteModel');
+		$resultPaquetes = $this->PaqueteModel->todosActivos();
+
+		$this->cargarPlantilla('index.php',array("mensaje"=>"","paquetes"=>$resultPaquetes));
+		//$this->load->view('welcome_message');
+	}
+
+	public function reserva($id = NULL)
+	{
+		$this->load->model('PaqueteModel');
+		$paquete=null;
+		if(!is_null($id))
+		{
+			$paquete=$this->PaqueteModel->buscarPorId($id);
+		}
+
+		$dato=null;
+		$this->cargarPlantilla('reserva.php',array("mensaje"=>"","dato"=>$dato,"paquete"=>$paquete));
 		//$this->load->view('welcome_message');
 	}
 

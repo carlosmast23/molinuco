@@ -13,6 +13,57 @@
 
     <main id="main">
 
+        <!-- ======= Pricing Section ======= -->
+        <section id="pricing" class="pricing">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h3>Conoce nuestros <span>precios</span></h3>
+                    <p>Ofrecemos costos cómodos de transportación además de promociones por viajar en grupo.</p>
+                </div>
+
+                <?php
+                    $contador=0;
+                    foreach($paquetes->result() as $fila)
+                    {
+                        if($contador==0)
+                        {
+                            echo "<div class='row'>";                            
+                        }
+
+                ?>
+                
+                
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="box">
+                            <h3><?php echo $fila->nombre ?></h3>
+                            <h4><sup>$</sup><?php echo $fila->precio ?></h4>
+                            <p><?php echo $fila->descripcion ?></p>
+                            <div class="btn-wrap">
+                                <a href="<?php echo base_url('index.php/welcome/reserva') . "/" . $fila->id ?>" class="btn-buy">Reservar</a>
+                            </div>
+                        </div>
+                    </div>
+               
+                    
+                <?php
+                        if($contador%3==0 && $contador>0 )
+                        {
+                            echo "</div>";   
+
+                            echo "<div class='row' style='margin-top:30px' >"; 
+                        }
+                        $contador++;
+                        
+                    }
+                    echo "</div>";   
+
+                ?>
+
+            </div>
+        </section>
+        <!-- End Pricing Section -->
+
         <!-- ======= Featured Services Section ======= -->
         <section id="featured-services" class="featured-services">
             <div class="container" data-aos="fade-up">
@@ -578,71 +629,6 @@
         </section>
         <!-- End Team Section -->
 
-        <!-- ======= Pricing Section ======= -->
-        <section id="pricing" class="pricing">
-            <div class="container" data-aos="fade-up">
-
-                <div class="section-title">
-                    <h3>Conoce nuestros <span>precios</span></h3>
-                    <p>Ofrecemos costos cómodos de transportación además de promociones por viajar en grupo.</p>
-                </div>
-
-                <div class="row">
-
-                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="box">
-                            <h3>Paquete básico incluido transporte</h3>
-                            <h4><sup>$</sup>6</h4>
-                            <p>4 personas desde nuestras oficinas, precio por cada persona</p>
-                            <div class="btn-wrap">
-                                <a href="#" class="btn-buy">Reservar</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
-                        <div class="box featured">
-                            <h3>Transporte básico con alimentación </h3>
-                            <h4><sup>$</sup>5</h4>
-                            <p>
-                                grupos de hasta 6 integrantes, precio por persona
-                            </p>
-                            <div class="btn-wrap">
-                                <a href="#" class="btn-buy">Reservar</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
-                        <div class="box">
-                            <h3>Transporte, alimentación, hospedaje</h3>
-                            <h4><sup>$</sup>20</span>
-                            </h4>
-                            <p> para grupos de hasta 10 integrantes, precio por persona</p>
-                            <div class="btn-wrap">
-                                <a href="#" class="btn-buy">Reservar</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
-                        <div class="box">
-                            <span class="advanced">Promoción</span>
-                            <h3>Transporte, alimentación, hospedaje, guía turística</h3>
-                            <h4><sup>$</sup>15</span>
-                            </h4>
-                            <p>para grupos de hasta 10 integrantes, precio por persona</p>
-                            <div class="btn-wrap">
-                                <a href="#" class="btn-buy">Reservar</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-        <!-- End Pricing Section -->
 
         <!-- ======= Frequently Asked Questions Section ======= -->
         <section id="faq" class="faq section-bg">
@@ -741,8 +727,7 @@
                 <div class="row" data-aos="fade-up" data-aos-delay="100">
 
                     <div class="col-lg-6 ">
-                        <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5642.305169389773!2d-78.41024308639078!3d-0.4177972445355124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d5bb93429e7cef%3A0x6b5679972b17cf3d!2sMolinuco%20EEq!5e0!3m2!1ses-419!2sec!4v1622068549082!5m2!1ses-419!2sec"
-                            frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
+                        <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5642.305169389773!2d-78.41024308639078!3d-0.4177972445355124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d5bb93429e7cef%3A0x6b5679972b17cf3d!2sMolinuco%20EEq!5e0!3m2!1ses-419!2sec!4v1622068549082!5m2!1ses-419!2sec" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
                     </div>
 
                     <div class="col-lg-6">
