@@ -10,7 +10,8 @@
             <ul>
                 <li><a class="nav-link scrollto " href="<?= base_url() ?>index.php/admin/usuarioVista">Usuario</a></li>
                 <li><a class="nav-link scrollto " href="<?= base_url() ?>index.php/admin/transporteVista">Transporte</a></li>
-                <li><a class="nav-link scrollto " href="<?= base_url() ?>index.php/admin/hospedajeVista">Hospedaje</a></li>
+                <li><a class="nav-link scrollto " href="<?= base_url() ?>index.php/hospedajeAdminCtr/hospedajeVista">Hospedaje</a></li>
+                <li><a class="nav-link scrollto " href="<?= base_url() ?>index.php/paqueteCtr/paqueteVista">Paquete</a></li>
                 <li><a class="nav-link scrollto" href="<?= base_url() ?>index.php/admin/turistaVista">Turistas</a></li>
                 <li><a class="nav-link scrollto" href="<?= base_url() ?>index.php/admin/cobroVista">Cobros</a></li>                
                 <li><a class="nav-link scrollto" href="<?= base_url() ?>index.php/welcome">Salir</a></li>

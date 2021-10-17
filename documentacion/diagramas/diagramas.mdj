@@ -53,8 +53,8 @@
 												"$ref": "AAAAAAF8QZbelYrBxPQ="
 											},
 											"font": "Arial;13;1",
-											"left": 208,
-											"top": 141,
+											"left": 552,
+											"top": 173,
 											"width": 56.95361328125,
 											"height": 13,
 											"text": "usuario"
@@ -69,15 +69,15 @@
 												"$ref": "AAAAAAF8QZbelYq/j2Q="
 											},
 											"font": "Arial;13;0",
-											"left": 208,
-											"top": 159,
+											"left": 552,
+											"top": 191,
 											"width": 56.95361328125,
 											"height": 10
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 208,
-									"top": 136,
+									"left": 552,
+									"top": 168,
 									"width": 56.95361328125,
 									"height": 33,
 									"nameLabel": {
