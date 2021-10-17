@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Welcome extends CI_Controller
+{
 
 	/**
 	 * Index Page for this controller.
@@ -23,58 +24,82 @@ class Welcome extends CI_Controller {
 		$this->load->model('PaqueteModel');
 		$resultPaquetes = $this->PaqueteModel->todosActivos();
 
-		$this->cargarPlantilla('index.php',array("mensaje"=>"","paquetes"=>$resultPaquetes));
+		$this->cargarPlantilla('index.php', array("mensaje" => "", "paquetes" => $resultPaquetes));
 		//$this->load->view('welcome_message');
 	}
 
 	public function reserva($id = NULL)
 	{
 		$this->load->model('PaqueteModel');
-		$paquete=null;
-		if(!is_null($id))
-		{
-			$paquete=$this->PaqueteModel->buscarPorId($id);
+		$paquete = null;
+		if (!is_null($id)) {
+			$paquete = $this->PaqueteModel->buscarPorId($id);
 		}
 
-		$dato=null;
-		$this->cargarPlantilla('reserva.php',array("mensaje"=>"","dato"=>$dato,"paquete"=>$paquete));
+		$dato = null;
+		$this->cargarPlantilla('reserva.php', array("mensaje" => "", "dato" => $dato, "paquete" => $paquete));
 		//$this->load->view('welcome_message');
+	}
+
+	public function reserva_imprimir($id = NULL)
+	{
+		$this->load->model('ReservaModel');
+		$reserva = null;
+		if (!is_null($id)) {
+			$reserva = $this->ReservaModel->buscarPorId($id);
+		}
+
+		$dato = null;
+		$this->cargarPlantilla('reserva_impresion.php', array("mensaje" => "", "dato" => $dato, "reserva" => $reserva));
+		//$this->load->view('welcome_message');
+	}
+
+
+	public function reservaGrabar()
+	{
+		$this->load->model('ReservaModel');
+		$this->ReservaModel->crear(
+			$this->input->post("idPaqueteTurista"),
+			$this->input->post("nombre"),
+			$this->input->post("telefono"),
+			$this->input->post("email"),
+			'P'
+		);
+		$idGrabado=$this->ReservaModel->crearGetId();
+		redirect('welcome/reserva_imprimir/'.$idGrabado);
 	}
 
 	public function loginVista()
 	{
-		$this->cargarPlantilla('login.php',array("mensaje"=>""));			
+		$this->cargarPlantilla('login.php', array("mensaje" => ""));
 	}
 
 	public function loginVerificar()
 	{
-		$usuario=$this->input->post('usuario');
-		$clave=$this->input->post('clave');
+		$usuario = $this->input->post('usuario');
+		$clave = $this->input->post('clave');
 
 		$this->load->model('ValidacionModel');
 		//Consultar todos los transportes de la vista
-		$validacionLogin=$this->ValidacionModel->validar($usuario,$clave);
+		$validacionLogin = $this->ValidacionModel->validar($usuario, $clave);
 
 		var_dump($validacionLogin);
 
 		//if($usuario=='admin' && $clave=='admin')
-		if($validacionLogin)
-		{
+		if ($validacionLogin) {
 			redirect('admin/index');
-		}
-		else
-		{
-			$this->cargarPlantilla('login.php',array("mensaje"=>"Error al ingresar las credenciales"));			
+		} else {
+			$this->cargarPlantilla('login.php', array("mensaje" => "Error al ingresar las credenciales"));
 		}
 
 		//$this->cargarPlantilla('index.php',null);
 	}
 
-	public function cargarPlantilla($pagina,$array)
+	public function cargarPlantilla($pagina, $array)
 	{
 		$this->load->view('plantilla/cabecera.php');
 		$this->load->view('plantilla/menu.php');
-		$this->load->view($pagina,$array);
+		$this->load->view($pagina, $array);
 		$this->load->view('plantilla/pie_pagina.php');
 	}
 }

@@ -49,4 +49,6 @@ CREATE TABLE `reserva`
 	`telefono` varchar(32) DEFAULT NULL,
 	`email` varchar(256) DEFAULT NULL,
 	`estado` varchar(1) DEFAULT NULL,
+	PRIMARY KEY (`id`)	,
+	FOREIGN KEY (id_paquete_turistico) REFERENCES paquete_turistico(id)
 );
