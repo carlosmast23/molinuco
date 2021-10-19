@@ -67,6 +67,7 @@ class PaqueteCtr extends CI_Controller
 			$this->input->post("descripcion"),
             $this->input->post("precio"),
             $this->input->post("estado")
+			
 		);
 
 	}

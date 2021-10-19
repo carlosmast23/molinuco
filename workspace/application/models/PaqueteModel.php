@@ -22,9 +22,9 @@
             return $resultado;
         }
 
-        public function crear($idTransporte,$idHospedaje,$nombre,$precio,$estado)
+        public function crear($idTransporte,$idHospedaje,$nombre,$descripcion,$precio,$estado)
         {
-            $resultado=$this->db->query("INSERT INTO paquete_turistico (id_transporte, id_hospedaje, nombre,descripcion,precio,estado) VALUES('$idTransporte', $idHospedaje, '$nombre', '$precio', '$estado');");
+            $resultado=$this->db->query("INSERT INTO paquete_turistico (id_transporte, id_hospedaje, nombre,descripcion,precio,estado) VALUES('$idTransporte', $idHospedaje, '$nombre','$descripcion', '$precio', '$estado');");
             if ($resultado == true) {
                 return true;
             } else {
