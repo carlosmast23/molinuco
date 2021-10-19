@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/molinuco/workspace/';
+$config['base_url'] = 'http://192.168.100.4/molinuco/workspace/';
 
 /*
 |--------------------------------------------------------------------------
