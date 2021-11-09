@@ -113,12 +113,14 @@
 
                 <div class="section-title">
                     <h3>Quienes <span>Somos</span></h3>
+                    <img src="<?= base_url() ?>public/assets/img/logoCooperativa.png" class="img-fluid" alt="">
                     <p>La Compañía “MOLINUCO TRANS S.A” inicia sus operaciones en 2017 bajo el control de la Superintendencia de Compañías con 15 unidades.</p>
                 </div>
 
                 <div class="row">
                     <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-                        <img src="<?= base_url() ?>public/assets/img/about.jpg" class="img-fluid" alt="">
+                        <!--<img src="<?= base_url() ?>public/assets/img/about.jpg" class="img-fluid" alt="">-->
+                        <img src="<?= base_url() ?>public/assets/img/molinuco.jpeg" class="img-fluid" alt="">
                     </div>
                     <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
                         <h3>Nuestra Identidad</h3>
