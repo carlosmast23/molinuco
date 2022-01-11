@@ -27,7 +27,7 @@ $config['base_url'] = 'http://localhost/molinuco/workspace/';
 
 /*
 |--------------------------------------------------------------------------
-| Index File
+| Index File 
 |--------------------------------------------------------------------------
 |
 | Typically this will be your index.php file, unless you've renamed it to
