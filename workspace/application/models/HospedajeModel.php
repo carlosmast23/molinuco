@@ -10,13 +10,13 @@
 
         public function todos()
         {
-            $resultado=$this->db->get('hospedaje');
+            $resultado=$this->db->get_where('hospedaje',array('estado'=> 'A'));
             return $resultado;
         }
 
         public function crear($nombre,$capacidad,$direccion)
         {
-            $resultado=$this->db->query("INSERT INTO molinuco.hospedaje (nombre, capacidad, direccion) VALUES('$nombre', $capacidad, '$direccion');");
+            $resultado=$this->db->query("INSERT INTO molinuco.hospedaje (nombre, capacidad, direccion,estado) VALUES('$nombre', $capacidad, '$direccion','A');");
             if ($resultado == true) {
                 return true;
             } else {
@@ -40,9 +40,11 @@
 
         
 	public function eliminar($id)
-	{
+        { $data = array(
+            'estado' => 'E',         
+        );
 	   $this->db->where('id',$id);
-	   $this->db->delete('hospedaje');
+	   $this->db->update('molinuco.hospedaje',$data);
 	}
 
 

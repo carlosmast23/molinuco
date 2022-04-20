@@ -10,13 +10,13 @@
 
         public function todos()
         {
-            $resultado=$this->db->get('transporte');
+            $resultado=$this->db->get_where('transporte',array('estado'=> 'A'));
             return $resultado;
         }
 
         public function crear($placa,$capacidad,$nombreChofer,$descripcion)
         {
-            $resultado=$this->db->query("INSERT INTO molinuco.transporte (placa, capacidad, nombre_chofer, descripcion) VALUES('$placa', $capacidad, '$nombreChofer', '$descripcion');");
+            $resultado=$this->db->query("INSERT INTO molinuco.transporte (placa, capacidad, nombre_chofer, descripcion,estado) VALUES('$placa', $capacidad, '$nombreChofer', '$descripcion','A');");
             if ($resultado == true) {
                 return true;
             } else {
@@ -42,8 +42,11 @@
         
 	public function eliminar($id)
 	{
+        $data = array(
+            'estado' => 'E',         
+        );
 	   $this->db->where('id',$id);
-	   $this->db->delete('transporte');
+	   $this->db->update('molinuco.transporte',$data);
 	}
 
 

@@ -16,7 +16,7 @@ class PaqueteCtr extends CI_Controller
 	{
 		$this->load->model('PaqueteModel');
 		//Consultar todos los datos de la vista
-		$result = $this->PaqueteModel->todos();
+		$result = $this->PaqueteModel->todosActivos();
 
         $this->load->model('TransporteModel');
         $resultTransporteList = $this->TransporteModel->todos();

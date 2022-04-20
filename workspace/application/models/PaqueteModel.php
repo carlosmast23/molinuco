@@ -52,8 +52,11 @@
         
 	public function eliminar($id)
 	{
+        $data = array(
+            'estado' => 'E',         
+        );
 	   $this->db->where('id',$id);
-	   $this->db->delete('paquete_turistico');
+	   $this->db->update('paquete_turistico',$data);
 	}
 
 

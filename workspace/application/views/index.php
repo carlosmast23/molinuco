@@ -23,10 +23,10 @@
                 </div>
 
                 <?php
-                    $contador=0;
+                    $contador=1;
                     foreach($paquetes->result() as $fila)
                     {
-                        if($contador==0)
+                        if($contador==1)
                         {
                             echo "<div class='row'>";                            
                         }
@@ -47,7 +47,7 @@
                
                     
                 <?php
-                        if($contador%3==0 && $contador>0 )
+                        if($contador%4==0 && $contador>0 )
                         {
                             echo "</div>";   
 
